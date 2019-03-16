@@ -7,8 +7,9 @@ const app = express();
 const PORT = 3000;
 
 // mongoose connection
+const MONGO_URL = 'mongodb://admin:admin1234@ds147965.mlab.com:47965/crm_dev';
 mongoose.Promise = global.Promise;
-mongoose.connect('<insert your own credentials>', {
+mongoose.connect(MONGO_URL, {
     useMongoClient: true
 });
 
