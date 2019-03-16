@@ -4,6 +4,9 @@
 
 - https://www.typescriptlang.org/docs/handbook/compiler-options.html
 
+
+- [TypeScript playground](https://www.typescriptlang.org/play/index.html)
+
 ## Setup
 ```
   npm i -g typescript
