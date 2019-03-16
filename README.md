@@ -13,6 +13,11 @@ Install types
 ```
   npm i -S @types/node @types/body-parser @types/express @types/mongoose
 ```
-Create ts config file
+Create ts config file tsconfig.json
 ```
+```
+Script
+```
+  "build": "tsc --w",
+  "start": "tsc && ts-node ./dist/index.js"
 ```

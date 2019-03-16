@@ -4,11 +4,17 @@ import * as bodyParser from 'body-parser';
 import routes from './src/routes/crmRoutes';
 import { Mongoose } from 'mongoose';
 
+import messenger from './src/controllers/createMessage';
+
 const app = express();
-const PORT = 3000;
+const PORT: number = 3000;
+const mongoUser: string = "admin";
+const mongoUserPwd: string = "admin1234";
+
+let messenges = new messenger(PORT);
 
 // mongoose connection
-const MONGO_URL = 'mongodb://admin:admin1234@ds147965.mlab.com:47965/crm_dev';
+const MONGO_URL: string = `mongodb://${mongoUser}:${mongoUserPwd}@ds147965.mlab.com:47965/crm_dev`;
 mongoose.connect(MONGO_URL, { useNewUrlParser: true });
 
 // bodyparser setup
@@ -21,9 +27,9 @@ routes(app);
 app.use(express.static('public'));
 
 app.get('/', (req, res) =>
-    res.send(`Node and express server is running on port ${PORT}`)
+    res.send(messenges.messagePrint())
 );
 
 app.listen(PORT, () =>
-    console.log(`your server is running on port ${PORT}`)
+    console.log(messenges.messagePrint())
 );
