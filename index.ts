@@ -2,15 +2,14 @@ import * as express from 'express';
 import * as mongoose from 'mongoose';
 import * as bodyParser from 'body-parser';
 import routes from './src/routes/crmRoutes';
+import { Mongoose } from 'mongoose';
 
 const app = express();
 const PORT = 3000;
 
 // mongoose connection
 const MONGO_URL = 'mongodb://admin:admin1234@ds147965.mlab.com:47965/crm_dev';
-mongoose.connect(MONGO_URL, {
-    useMongoClient: true
-});
+mongoose.connect(MONGO_URL, { useNewUrlParser: true });
 
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }));
